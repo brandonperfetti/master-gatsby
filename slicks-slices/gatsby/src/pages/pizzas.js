@@ -5,14 +5,13 @@ import ToppingsFilter from '../components/ToppingsFilter';
 import SEO from '../components/SEO';
 
 export default function PizzasPage({ data, pageContext }) {
-  // console.log(data.pizzas);
   const pizzas = data.pizzas.nodes;
   return (
     <>
       <SEO
         title={
           pageContext.topping
-            ? `Pizzas with ${pageContext.topping}`
+            ? `Pizzas With ${pageContext.topping}`
             : `All Pizzas`
         }
       />
@@ -25,8 +24,6 @@ export default function PizzasPage({ data, pageContext }) {
 export const query = graphql`
   query PizzaQuery($toppingRegex: String) {
     pizzas: allSanityPizza(
-      # filter: { toppings: { elemMatch: { name: { in: $topping } } } }
-
       filter: { toppings: { elemMatch: { name: { regex: $toppingRegex } } } }
     ) {
       nodes {
@@ -41,7 +38,7 @@ export const query = graphql`
         }
         image {
           asset {
-            fixed(width: 200, height: 200) {
+            fixed(width: 600, height: 200) {
               ...GatsbySanityImageFixed
             }
             fluid(maxWidth: 400) {
