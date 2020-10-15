@@ -32,8 +32,8 @@ export default function usePizza({ pizzas, values }) {
   async function submitOrder(e) {
     e.preventDefault();
     setLoading(true);
-    setError('null');
-    setMessage('Go eat!');
+    setError('');
+    // setMessage('Go eat!');
 
     // gather all the data
     const body = {
