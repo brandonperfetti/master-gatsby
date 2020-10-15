@@ -1,4 +1,5 @@
 import React from 'react';
+import { HomePageGrid } from '../styles/Grids';
 import useLatestData from '../utils/useLatestData';
 
 function CurrentlySlicing() {
@@ -19,13 +20,13 @@ function HotSlices() {
 export default function HomePage() {
   const [slicemasters, hotSlices] = useLatestData();
   return (
-    <div>
+    <div className="center">
       <h1>Best pizza in huntington Beach!</h1>
       <p>Open 11am to 9pm Every single Day!</p>
-      <div>
+      <HomePageGrid>
         <CurrentlySlicing slicemasters={slicemasters} />
         <HotSlices hotSlices={hotSlices} />
-      </div>
+      </HomePageGrid>
     </div>
   );
 }
