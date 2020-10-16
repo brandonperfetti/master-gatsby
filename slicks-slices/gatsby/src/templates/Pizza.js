@@ -7,11 +7,10 @@ import SEO from '../components/SEO';
 const PizzaGrid = styled.div`
   display: grid;
   grid-gap: 2rem;
-  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
 `;
 
 export default function SinglePizzaPage({ data: { pizza } }) {
-  console.log(pizza);
   return (
     <>
       <SEO title={pizza.name} image={pizza.image?.asset?.fluid?.src} />
